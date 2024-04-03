@@ -45,11 +45,13 @@ void traversel(struct Node* q)
 	}
 }
 void search_node_by_name(struct Node* q){
+	int count=0;
     string temp;
     cout<<"Enter Name you want to search for :";
     getline(cin,temp);
     while(q!=NULL){
         if(q->Name==temp){
+			count++;
         cout << q->sr_no << " ";
         cout << q->Name << " ";
         cout << q->Interview_date << " ";
@@ -63,21 +65,22 @@ void search_node_by_name(struct Node* q){
         cout << q->Whatsapp_no << " ";
         cout << q->Alt_no << " ";
         cout << q->Skype_id << endl;
+		q=q->link;
         }else{q=q->link;
-            if(q==NULL){
+        }
+    }if(count == 0){
                 cout<<"Name not found"<<endl;
             }
-        }
-        q=q->link;
-    }
 
 }
 void search_node_by_ID(struct Node* q){
+	int count=0;
     string temp;
     cout<<"Enter ID of student you want to search for :";
     getline(cin,temp);
     while(q!=NULL){
         if(q->Id==temp){
+			count++;
         cout << q->sr_no << " ";
         cout << q->Name << " ";
         cout << q->Interview_date << " ";
@@ -94,19 +97,20 @@ void search_node_by_ID(struct Node* q){
         q=q->link;
         }
         else{q=q->link;
-            if(q==NULL){
+        }
+    }if(count==0){
                 cout<<"Id not found"<<endl;
             }
-        }
-    }
 
 }
 void search_node_by_Company(struct Node* q){
+	int count=0;
     string temp;
     cout<<"Enter ID of student you want to search for :";
     getline(cin,temp);
     while(q!=NULL){
         if(q->Company==temp){
+			count++;
         cout << q->sr_no << " ";
         cout << q->Name << " ";
         cout << q->Interview_date << " ";
@@ -123,11 +127,10 @@ void search_node_by_Company(struct Node* q){
         q=q->link;
         }
         else{q=q->link;
-            if(q==NULL){
+        }
+    }if(count==0){
                 cout<<"Id not found"<<endl;
             }
-        }
-    }
 
 }
 
