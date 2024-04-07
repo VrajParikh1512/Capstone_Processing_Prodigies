@@ -8,25 +8,25 @@ We have a LINKED LIST Data structure to store all of the Data of the students af
 
 Contribution:-
 JEET MODI(20230412):-
-Merge Sort Algorithm for Sorting By ID
-Merge Sort Algorithm for Sorting By Package
+Merge Sort Algorithm for Sorting By ID,
+Merge Sort Algorithm for Sorting By Package,
 Median Function
 
 SIDDHANT SHEKHAR(202301268):-
-Traversal Function
-Acceptance rate function
-Trajectory function
-README File
+Traversal Function,
+Acceptance rate function,
+Trajectory function,
+README File,
 
 KATHAN BALAR(202301279):-
-Search By ID
-Search by Name
-Search by Company
-Search by Branch
-Mean Function
+Search By ID,
+Search by Name,
+Search by Company,
+Search by Branch,
+Mean Function,
 
 VRAJ PARIKH(202301440):-
-Store Data Function
-Min-Max Function
-Dream-Super Dream Company Function
+Store Data Function,
+Min-Max Function,
+Dream-Super Dream Company Function.
 
