@@ -99,39 +99,39 @@ Node* Store_data(Node* &head, const string &filename, Node* last) {
         getline(inputstring, p->End_time, ',');
         getline(inputstring, p->Id, ',');
         getline(inputstring, p->Email, ',');
-    getline(inputstring, p->Programme, ',');
-    getline(inputstring, p->Contact_no, ',');
-    getline(inputstring, p->Whatsapp_no, ',');
-    getline(inputstring, p->Alt_no, ',');
-    getline(inputstring, p->Skype_id, ',');
-    getline(inputstring, p->Package, ',');
-    p->Company = cmpy.substr(1, cmpy.length() - 2);
+        getline(inputstring, p->Programme, ',');
+    	getline(inputstring, p->Contact_no, ',');
+    	getline(inputstring, p->Whatsapp_no, ',');
+    	getline(inputstring, p->Alt_no, ',');
+    	getline(inputstring, p->Skype_id, ',');
+    	getline(inputstring, p->Package, ',');
+    	p->Company = cmpy.substr(1, cmpy.length() - 2);
 
-    if (str1 == "Interview Schedule - Round 1") {
-        p->r1 = true;
-    }
-    else if (str1 == "Interview Schedule - Round 2") {
-        p->r2 = true;
-    }
-    else if (str1 == "Interview Schedule - Round 3") {
-        p->r3 = true;
-    }
-    else if (str1 == "Interview Schedule - HR Round") {
-        p->r4 = true;
-    }
-    else if (str1 == "Interview Schedule - Final Selection") {
-        p->r5 = true;
-    }
+    	if (str1 == "Interview Schedule - Round 1") {
+        	p->r1 = true;
+    	}
+    	else if (str1 == "Interview Schedule - Round 2") {
+        	p->r2 = true;
+    	}
+    	else if (str1 == "Interview Schedule - Round 3") {
+    	    p->r3 = true;
+    	}
+    	else if (str1 == "Interview Schedule - HR Round") {
+    	    p->r4 = true;
+    	}
+    	else if (str1 == "Interview Schedule - Final Selection") {
+    	    p->r5 = true;
+    	}
 
-    p->link = nullptr;
-    if (head == nullptr) {
-        head = p;
-    }
-    else {
-        last->link = p;
-    }
-    last = p;
-    }
+    	p->link = nullptr;
+    	if (head == nullptr) {
+    	    head = p;
+    	}
+    	else {
+        	last->link = p;
+    	}
+    	last = p;
+    	}
     file.close();
     return last;
 }
@@ -170,6 +170,44 @@ void search_node_by_Branch(Node* q) {
     }
     if (count == 0) {
         cout << "Branch name not found" << endl;
+    }
+}
+
+void search_node_by_year(Node* q) {
+    int count = 0;
+    string year,temp;   
+    cout << "Enter the year of batch you want to search for:";
+    getline(cin, year);
+    while (q != NULL) {
+        temp=q->Id.substr(0,4);
+        if (temp == year) {
+            count++;
+            cout << q->sr_no << " ";
+            cout << q->Name << " ";
+            cout << q->Interview_date << " ";
+            cout << q->Interview_status << " ";
+            cout << q->Start_time << " ";
+            cout << q->End_time << " ";
+            cout << q->Id << " ";
+            cout << q->Email << " ";
+            cout << q->Programme << " ";
+            cout << q->Contact_no << " ";
+            cout << q->Whatsapp_no << " ";
+            cout << q->Alt_no << " ";
+            cout << q->Skype_id << " ";
+            cout << q->r1 << " ";
+            cout << q->r2 << " ";
+            cout << q->r3 << " ";
+            cout << q->r4 << " ";
+            cout << q->r5 << endl;
+            q = q->link;
+        }
+        else {
+            q = q->link;
+        }
+    }
+    if (count == 0) {
+        cout << "Batch not found" << endl;
     }
 }
 
@@ -703,14 +741,15 @@ int main() {
         cout << "2. Search a student placement data using 'Student ID'." << endl;
         cout << "3. Search students placement data using 'Company name'." << endl;
         cout << "4. Search students placement data using 'Branch'." << endl;
-        cout << "5. Sort the data of students according to their 'Student ID'." << endl;
-        cout << "6. Sort the data of students according to the 'package'" << endl;
-        cout << "7. Find mean and median of the placement" << endl;
-        cout << "8. Find the maximum and minimum package in the placement" << endl;
-        cout << "9. Find the acceptnce rate of a particular company" << endl;
-        cout << "10. Find the tragectory of a particular company" << endl;
-        cout << "11. Print Companies offering Dream and Super Dream Packages" << endl;
-        cout << "12. Exit/Don't want to perform any operation" << endl;
+        cout << "5. Search students placement data using 'Year'." << endl;
+        cout << "6. Sort the data of students according to their 'Student ID'." << endl;
+        cout << "7. Sort the data of students according to the 'package'" << endl;
+        cout << "8. Find mean and median of the placement" << endl;
+        cout << "9. Find the maximum and minimum package in the placement" << endl;
+        cout << "10. Find the acceptnce rate of a particular company" << endl;
+        cout << "11. Find the tragectory of a particular company" << endl;
+        cout << "12. Print Companies offering Dream and Super Dream Packages" << endl;
+        cout << "13. Exit/Don't want to perform any operation" << endl;
 
         int n;
         cout << "Enter the number of operation which you want to perform: ";
@@ -735,46 +774,50 @@ int main() {
             break;
 
         case 5:
+            search_node_by_year(head);
+            break;
+
+        case 6:
             cout<<endl;
             head = mergeSort_id(head);
             traverseLL(head);
             cout<<endl;
             break;
 
-        case 6:
+        case 7:
             cout<<endl;
             head = Sortbypackage_asc(head);
             traverseLL(head);
             cout<<endl;
             break;
 
-        case 7:
+        case 8:
             mean_package(head);
             Median_package(head);
             break;
 
-        case 8:
+        case 9:
             max_min_package(head);
             break;
 
-        case 9:
+        case 10:
             acceptance_rate(head);
             break;
 
-        case 10:
+        case 11:
             trajectory(head);
             break;
 
-        case 11:
+        case 12:
             dream_superdream(head);
             break;
 
-        case 12:
+        case 13:
             cout << "Exiting..." << endl;
             exit(1);
 
         default:
-            cout << "Invalid choice. Please enter a number between 1 and 11." << endl;
+            cout << "Invalid choice. Please enter a number between 1 and 13." << endl;
             break;
         }
     }
